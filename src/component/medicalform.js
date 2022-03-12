@@ -11,7 +11,7 @@ const Medicalform = () => {
         drlicense: "",
         lotnumber: "",
         quantity: "",
-        prescription: ""
+        prescription: null
     });
 
     const [records, setRecords ] = useState([]);
@@ -44,21 +44,21 @@ const Medicalform = () => {
 //    //image compression
 //    const [compressedFile, setCompressedFile] = useState(null);
   
-//    const handleCompressedUpload = (e) => {
-//      const image = e.target.files[0];
-//      new Compressor(image, {
-//        quality: 0.8, // 0.6 can also be used, but its not recommended to go below.
-//        success: (compressedResult) => {
-//          // compressedResult has the compressed file.
-//          // Use the compressed file to upload the images to your server.  
+   const handleCompressedUpload = (e) => {
+     const image = e.target.files[0];
+     new Compressor(image, {
+       quality: 0.8, // 0.6 can also be used, but its not recommended to go below.
+       success: (compressedResult) => {
+         // compressedResult has the compressed file.
+         // Use the compressed file to upload the images to your server.  
 
-//         //  setCompressedFile(Response)
-//         setUserRegisteration({...userRegisteration, prescription: compressedResult})
+        //  setCompressedFile(Response)
+        setUserRegisteration({...userRegisteration, prescription: compressedResult})
         
 
-//        },
-//      });
-//    };
+       },
+     });
+   };
    
 
   //captcha code
@@ -127,11 +127,11 @@ const Medicalform = () => {
             <div>
                 <label htmlFor='prescription'>Upload Prescription </label>
                 <input  className='form-field' type="file" autoComplete='off'
-                value={userRegisteration.prescription}
+                // value={userRegisteration.prescription}
                 accept="image/*,capture=camera"
                 capture="”camera"
-                onChange={handleInput} 
-                // onChange={(event) => this.handleCompressedUpload(event)}
+                // onChange={handleInput} 
+                onChange={handleCompressedUpload}
                 name="prescription" id="prescription" />
             </div>
 
