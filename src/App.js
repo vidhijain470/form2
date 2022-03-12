@@ -9,9 +9,9 @@ function App() {
 
     //  <Warehouseform />
 
-    <Medicalform/>
+    // <Medicalform/>
     
-    // <Manufacturerform/>
+    <Manufacturerform/>
     
   );
 }
